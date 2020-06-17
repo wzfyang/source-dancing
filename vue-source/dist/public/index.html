@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../umd/vue.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <p class="p_name" style="color:red;font-size: 32px">{{name}}</p>
+        <p class="p_age" style="color:green;font-size: 26px">age:
+            {{age}}</p>
+        <p class="p_language" style="font-size: 22px">{{language}}</p>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.mixin({
+        created() {
+            console.log('vm0', 'created');
+        }
+    })
+    const vm = new Vue({
+        el: "#app",
+        // template: `<div class="root" style="color:red"><span class="span_name">{{name}} say</span><div>hello</div></div>`,
+        data() {
+            return {
+                name: 'wzy',
+                age: 20,
+                address: {
+                    country: 'China',
+                    province: 'HeNan'
+                },
+                friends: [
+                    {
+                        name: 'xiaoming',
+                        age: 22
+                    },
+                    {
+                        name: 'hello',
+                        age: 21
+                    }
+                ],
+                language: [
+                    'Chinese', 'English'
+                ]
+            }
+        },
+        created() {
+            console.log('vm1', 'created')
+        }
+    })
+    console.log('index', vm);
+    console.log('vm data', vm.name);
+
+    setTimeout(() => {
+        vm.name = 'majun'
+        vm.language.push('France')
+    }, 2000)
+    
+</script>
+</html>
