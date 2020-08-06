@@ -1,0 +1,6 @@
+[diff]
+    tool = vimdiff
+[alias]
+    d = difftool
+[difftool]
+    prompt = false
